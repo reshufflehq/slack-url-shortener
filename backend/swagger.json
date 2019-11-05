@@ -1,0 +1,157 @@
+
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple API reference implementation, feel free to clone and reuse",
+    "version": "1.0.0",
+    "title": "Reshuffle CRUD API Demo",
+    "termsOfService": "https://dev.reshuffle.app/tos",
+    "contact": {
+      "email": "support@reshuffle.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "",
+  "basePath": "",
+  "schemes": [
+    "http", 
+    "https"
+  ],
+  "paths": {
+    "/create": {
+      "post": {
+        "summary": "Creates a key value entry.",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "entry",
+            "description": "The key-value entery to create.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "key" , "value"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/update": {
+      "post": {
+        "summary": "Updates a key-value entry (creates if not exist).",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "entry",
+            "description": "The key-value entery to update.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "key" , "value"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/list-keys": {
+      "get": {
+        "summary": "Returns a list of keys.",
+        "description": "Optional extended description in Markdown.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/read/{key}": {
+      "get": {
+        "summary": "Returns a value for a given key.",
+        "description": "Optional extended description in Markdown.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key",
+            "description": "The key for the entery to find.",
+            "schema": {
+              "type": "string"
+            },
+            "required":true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/delete/{key}": {
+      "get": {
+        "summary": "deletes an entry for a given key.",
+        "description": "Optional extended description in Markdown.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key",
+            "description": "The key for the entery to delete.",
+            "schema": {
+              "type": "string"
+            },
+            "required":true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
