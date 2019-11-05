@@ -101,14 +101,12 @@ app.get('/delete/:key', async (req, res) => {
 
 
 app.get('/swagger', async (req, res) => {
-
     swaggerDocument.host = req.get('host');
     if(req.protocol == "https"){
         swaggerDocument.schemes = ["https", "http"]
     }else{
         swaggerDocument.schemes = ["http", "https"]
     }
-    
     res.end(JSON.stringify(swaggerDocument));
 });
 
@@ -120,6 +118,11 @@ var options = {
 app.use('/api-docs', function (req, res, next) {
     swaggerDocument.host = req.get('host');
     req.swaggerDoc = swaggerDocument;
+    if(req.protocol == "https"){
+        swaggerDocument.schemes = ["https", "http"]
+    }else{
+        swaggerDocument.schemes = ["http", "https"]
+    }
     next();
 }, swaggerUi.serve, swaggerUi.setup(null, options));
 
