@@ -13,6 +13,43 @@ app.set('trust proxy', true);
 
 const allKeysQuery = db.Q.filter(db.Q.key.startsWith(''));
 
+
+app.post('/go', express.urlencoded(), async (req, res) => {
+    try {
+        const key = req.body.text;
+        const result = await db.get("go/"+key)
+        if(result){
+            res.end(result);
+        }else{
+            res.end("No short link found, please use /set-go to set a short link");
+        }
+        
+    } catch (e) {
+        res.sendStatus(500);
+        console.error(e);
+    }
+});
+
+
+app.post('/set-go', express.urlencoded(), async (req, res) => {
+    try {
+        const key = req.body.text;
+        var result = key.split(" ");
+        if(result[0] && result[1]){
+            const name = result[0];
+            const url = result[1];
+            db.update("go/"+name, (prev_value) => { return url; });
+            res.end(`Setting ${name} to be ${url} `);
+        }else{
+            res.end(`Missing parameter. `);   
+        } 
+        
+    } catch (e) {
+        res.sendStatus(500);
+        console.error(e);
+    }
+});
+
 app.get('/list-keys', async (req, res) => {
     try {
         const result = await db.find(allKeysQuery);
