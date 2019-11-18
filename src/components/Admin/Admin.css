@@ -1,0 +1,66 @@
+.trim-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2;
+}
+
+.url-row {
+  height: 40px;
+  padding-right: 5rem;
+}
+
+.url-row:hover {
+  height: 40px;
+  margin-right: 5.5rem;
+  background-color: rgb(248, 216, 205);
+}
+
+.url-add {
+  background-color: rgb(248, 216, 205);
+  color: black;
+  border: none;
+}
+
+.url-add:hover {
+  background-color: rgb(247, 195, 176);
+  color: black;
+  border: none;
+}
+
+.trim-text:hover {
+  height: 40px;
+}
+
+.link {
+  color: rgb(247, 195, 176);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgb(241, 151, 119);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(247, 181, 144, 0.25);
+  border-color: rgb(248, 216, 205);
+}
+
+.btn-light {
+  background-color: transparent;
+  border-color: transparent;
+  font-weight: 300;
+}
+
+.btn-light:hover {
+  background-color: transparent;
+  border-color: transparent;
+  font-weight: 400;
+}
+
+.btn-group-sm > .btn,
+.btn-sm {
+  padding: 0;
+  margin-bottom: 0.25rem;
+  margin-left: 0.5rem;
+}

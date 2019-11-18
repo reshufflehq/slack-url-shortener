@@ -1,18 +1,18 @@
 import React from 'react';
-import logo from './assets/logo.svg';
-import reshuffle from './assets/reshuffle.png';
-import plus from './assets/plus.png';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Admin from './components/Admin/Admin';
+import LiveFrame from './components/LiveFrame';
 import './App.css';
-import SwaggerUI from "swagger-ui-react"
-import "swagger-ui-react/swagger-ui.css"
-
-
 
 function App() {
   return (
-    <div >
-      <SwaggerUI url="/swagger" />
-    </div>
+    <Container fluid>
+      <Router>
+        <Route exact path='/' component={Admin} />
+        <Route path='/live' component={LiveFrame} />
+      </Router>
+    </Container>
   );
 }
 
