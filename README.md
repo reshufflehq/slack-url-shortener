@@ -9,7 +9,7 @@ This is a Reshuffle template app. Reshuffle provides a progressive way to build 
 
 ## Screenshots
 
-<img src="./app-screen.png" width="50%" height="50%">
+<img src="./src/components/Admin/show.gif" width="50%" height="50%">
 
 
 ## Getting Started
