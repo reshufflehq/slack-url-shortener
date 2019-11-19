@@ -8,7 +8,8 @@
 .delete:hover {
   background-color: transparent !important;
   border-color: transparent !important;
-  font-weight: 600;
+  font-weight: 500;
+  color: gray !important;
 }
 
 .delete {
@@ -21,10 +22,9 @@
   height: 40px;
   padding-right: 5rem;
 }
-.input-control:focus,
 .form-control:focus {
-  border-color: #42c299 !important;
-  box-shadow: #ffcc00 !important;
+  border-color: #d2cece !important;
+  box-shadow: 0 0 0 0.2rem rgba(66, 194, 153, 0.25) !important;
 }
 
 .url-row:hover {
