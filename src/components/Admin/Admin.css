@@ -5,40 +5,48 @@
   line-height: 2;
 }
 
+.delete:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  font-weight: 600;
+}
+
+.delete {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: black !important;
+}
+
 .url-row {
   height: 40px;
   padding-right: 5rem;
+}
+.input-control:focus,
+.form-control:focus {
+  border-color: #42c299 !important;
+  box-shadow: #ffcc00 !important;
 }
 
 .url-row:hover {
   height: 40px;
   margin-right: 5.5rem;
-  background-color: rgb(248, 216, 205);
+  background-color: rgba(29, 155, 209, 0.1);
+  border-color: #dcf0fb;
 }
 
 .url-add {
-  background-color: rgb(248, 216, 205);
+  background-color: #42c299 !important;
   color: black;
-  border: none;
+  border: none !important;
 }
 
 .url-add:hover {
-  background-color: rgb(247, 195, 176);
   color: black;
   border: none;
 }
 
 .trim-text:hover {
   height: 40px;
-}
-
-.link {
-  color: rgb(247, 195, 176);
-  text-decoration: none;
-}
-
-.link:hover {
-  color: rgb(241, 151, 119);
 }
 
 .form-control:focus {
@@ -63,4 +71,7 @@
   padding: 0;
   margin-bottom: 0.25rem;
   margin-left: 0.5rem;
+}
+
+.title {
 }

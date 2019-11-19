@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import '@reshuffle/code-transform/macro';
 import React, { useState, useEffect } from 'react';
 
@@ -15,7 +16,7 @@ import {
   checkIsConnected,
 } from '../../../backend/backend';
 import './Admin.css';
-import gif from './show.gif';
+import Greeting from '../Greeting/Greeting';
 
 export default function Admin() {
   const [inputValue, setInputValue] = useState('');
@@ -60,19 +61,17 @@ export default function Admin() {
   };
 
   const updateDisplay = (links) => {
-    console.log(links);
     var t = links && links.length > 0 ? Display.LIST : Display.NO_ITEMS;
-    console.log(t);
     setDisplay(t);
     setLinksList(links);
   };
 
   return (
     <Container className='mt-4 mb-5'>
-      <Greeting isConnected={isConnected} />
+      {!isConnected && <Greeting />}
       <Row>
-        <Col className='col-md-7 col-sm-10'>
-          <h1 className='pt-4 pb-4'>{`Short Link list (${
+        <Col className='col-md-10 col-sm-10'>
+          <h1 className='pt-4 pb-4 title'>{`Short Link list (${
             display === Display.LIST && linksList ? linksList.length : 0
           })`}</h1>
           <Row className='mr-0 ml-0 pb-4'>
@@ -81,7 +80,6 @@ export default function Admin() {
                 as='input'
                 type='text'
                 placeholder='Add short link: word url'
-                className='input-control'
                 value={inputValue}
                 onChange={handleChange}
                 onKeyDown={handleChange}
@@ -98,7 +96,7 @@ export default function Admin() {
             linksList.map((url) => (
               <Row className='ml-0 url-row' key={url.key} variant='info'>
                 <Button
-                  variant='light'
+                  className='delete'
                   size='sm'
                   onClick={() => handleDeleteList(url.key)}
                 >
@@ -117,48 +115,4 @@ export default function Admin() {
       </Row>
     </Container>
   );
-}
-
-function Greeting(props) {
-  if (!props.isConnected) {
-    return (
-      <div className='alert alert-primary' role='alert'>
-        This app is a URL shortener Slack Slash command:
-        <br />
-        <img alt='slack-gif' className='pt-2 pb-2' src={gif} />
-        <br />
-        How to connect your Slack to get the URL shortener:
-        <ol>
-          <li>
-            Go to
-            <a target='_blank' href='http://api.slack.com'>
-              api.slack.com
-            </a>
-          </li>
-          <li>
-            Create a new app and configure two slash commands:
-            <ul>
-              <li>/go should point to {window.location.href}go</li>
-              <li>/set-go should point to {window.location.href}set-go</li>
-            </ul>
-          </li>
-          <li>Go to Slack and run: /go reshuffle</li>
-          <li>
-            Click{' '}
-            <a href='' onClick={reload}>
-              here
-            </a>{' '}
-            to make this message go away afterwards (if the message does not go
-            away, the connection is not working)
-          </li>
-        </ol>
-      </div>
-    );
-  } else {
-    return null;
-  }
-}
-
-function reload() {
-  window.location.reload();
 }
