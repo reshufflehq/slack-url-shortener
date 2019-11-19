@@ -37,12 +37,9 @@ export default function Admin() {
 
   const handleAddLink = async () => {
     try {
-      // const text = inputValue;
-
       // prevent empty string to add in list
       if (!inputName || !inputUrl) return;
-      // const data = text.split(' ');
-      // const links = await addNewUrl(data[0], data[1]);
+
       const links = await addNewUrl(inputName, inputUrl);
       updateDisplay(links);
       setInputUrl('');
