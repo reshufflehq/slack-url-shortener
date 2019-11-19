@@ -52,13 +52,6 @@ export default function Admin() {
     }
   };
 
-  // const handleChange = ({ which, target, keyCode }) => {
-  //   if (which === 13 || keyCode === 13) {
-  //     handleAddLink();
-  //     return;
-  //   }
-  //   setInputValue(target.value);
-  // };
   const handleDeleteList = async (url) => {
     const links = await deleteLink(url);
     updateDisplay(links);
