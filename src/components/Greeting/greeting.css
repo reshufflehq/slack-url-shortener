@@ -1,0 +1,13 @@
+.alert {
+  background-color: #054063;
+  border-color: #054063;
+  color: white;
+}
+
+.alert a {
+  color: #42c299;
+}
+
+.alert a:hover {
+  color: #42c299;
+}
