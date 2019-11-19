@@ -3,7 +3,7 @@ This is a [Reshuffle](https://reshuffle.com/) template.
 
 ## A starting point for creating your Slack Integration with Reshuffle.
 
-This is a Reshuffle template app. Reshuffle provides a progressive way to build applications and workflows, without needing to understand the cloud.
+This is a Reshuffle template for Slack Integration - you can install it and modify it to make it your own. Reshuffle provides a progressive way to build applications and workflows, without needing to understand the cloud.
 
 > Note: Reshuffle is built on top of React and Express for the backend
 
