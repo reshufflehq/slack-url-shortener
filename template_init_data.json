@@ -1,12 +1,10 @@
 {
   "items": [
+    { "key": "links/reshuffle", "data": "https://reshuffle.com" },
+    { "key": "links/maps", "data": "https://www.google.com/maps" },
     {
-      "key": "posts",
-      "data": [
-        { "key": "links/reshuffle", "value": "https://reshuffle.com" },
-        { "key": "links/maps", "value": "https://www.google.com/maps" },
-        { "key": "links/slack-go", "value": "https://liberal-canid-46.reshuffle.app/" }
-      ]
+      "key": "links/slack-go",
+      "data": "https://liberal-canid-46.reshuffle.app/"
     }
   ]
 }
