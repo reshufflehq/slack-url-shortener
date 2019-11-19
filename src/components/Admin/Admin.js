@@ -2,7 +2,8 @@
 import '@reshuffle/code-transform/macro';
 import React, { useState, useEffect } from 'react';
 
-import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -19,7 +20,8 @@ import './Admin.css';
 import Greeting from '../Greeting/Greeting';
 
 export default function Admin() {
-  const [inputValue, setInputValue] = useState('');
+  const [inputName, setInputName] = useState('');
+  const [inputUrl, setInputUrl] = useState('');
   const [linksList, setLinksList] = useState([]);
   const [display, setDisplay] = useState(Display.NO_ITEMS);
   const [isConnected, setIsConnected] = useState(true);
@@ -35,26 +37,28 @@ export default function Admin() {
 
   const handleAddLink = async () => {
     try {
-      const text = inputValue;
+      // const text = inputValue;
 
       // prevent empty string to add in list
-      if (!text) return;
-      const data = text.split(' ');
-      const links = await addNewUrl(data[0], data[1]);
+      if (!inputName || !inputUrl) return;
+      // const data = text.split(' ');
+      // const links = await addNewUrl(data[0], data[1]);
+      const links = await addNewUrl(inputName, inputUrl);
       updateDisplay(links);
-      setInputValue('');
+      setInputUrl('');
+      setInputName('');
     } catch (error) {
       console.error('Error on adding link to db');
     }
   };
 
-  const handleChange = ({ which, target, keyCode }) => {
-    if (which === 13 || keyCode === 13) {
-      handleAddLink();
-      return;
-    }
-    setInputValue(target.value);
-  };
+  // const handleChange = ({ which, target, keyCode }) => {
+  //   if (which === 13 || keyCode === 13) {
+  //     handleAddLink();
+  //     return;
+  //   }
+  //   setInputValue(target.value);
+  // };
   const handleDeleteList = async (url) => {
     const links = await deleteLink(url);
     updateDisplay(links);
@@ -76,14 +80,21 @@ export default function Admin() {
           })`}</h1>
           <Row className='mr-0 ml-0 pb-4'>
             <Col className='pl-0 pr-0'>
-              <Form.Control
-                as='input'
-                type='text'
-                placeholder='Add short link: word url'
-                value={inputValue}
-                onChange={handleChange}
-                onKeyDown={handleChange}
-              />
+              <InputGroup className='mb-3'>
+                <InputGroup.Prepend>
+                  <InputGroup.Text>Add short link:</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  placeholder='Name'
+                  onChange={(e) => setInputName(e.target.value)}
+                  value={inputName}
+                />
+                <FormControl
+                  placeholder='Url'
+                  onChange={(e) => setInputUrl(e.target.value)}
+                  value={inputUrl}
+                />
+              </InputGroup>
             </Col>
             <Col className='col-1 pl-1 pr-0'>
               <Button onClick={handleAddLink} className='url-add'>

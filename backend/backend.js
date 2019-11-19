@@ -18,7 +18,8 @@ export async function addNewUrl(phrase, link) {
 
 /* @expose */
 export async function deleteLink(url) {
-  return db.remove(url);
+  await db.remove(url);
+  return db.find(allKeysQuery);
 }
 
 /* @expose */
@@ -33,5 +34,5 @@ export async function checkIsConnected() {
  */
 /* @expose */
 export async function getLinks() {
-  return db.find(allKeysQuery) || [];
+  return (await db.find(allKeysQuery)) || [];
 }
