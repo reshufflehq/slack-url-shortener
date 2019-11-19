@@ -15,8 +15,6 @@
     "@reshuffle/fetch-runtime": "0.0.5",
     "@reshuffle/local-proxy": "^0.2.15",
     "@reshuffle/server-function": "0.0.9",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
     "bootstrap": "^4.3.1",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^5.0.2",
@@ -30,9 +28,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
     "swagger-ui-express": "^4.1.2",
-    "swagger-ui-react": "^3.24.0",
-    "typescript": "^3.6.4",
-    "typescript-eslint": "0.0.1-alpha.0"
+    "swagger-ui-react": "^3.24.0"
   },
   "scripts": {
     "start": "cross-env EXTEND_ESLINT=true react-scripts start",
