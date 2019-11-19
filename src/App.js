@@ -10,7 +10,6 @@ function App() {
     <Container fluid>
       <Router>
         <Route exact path='/' component={Admin} />
-        <Route path='/live' component={LiveFrame} />
       </Router>
     </Container>
   );
